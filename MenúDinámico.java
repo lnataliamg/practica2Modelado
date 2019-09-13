@@ -1,10 +1,10 @@
 import java.util.*;
-import java.util.Iterator;
+
 public class MenúDinámico{
   ArrayList hamburguesasMenu;
 
   public MenúDinámico(){
-    hamburguesasMenu = new ArrayList();
+    hamburguesasMenu = new ArrayList<Hamburguesa>();
   }
   /**
   * Clase que agrega una hamgurgesa al menú. si no hay espacio no lo agregar
@@ -23,6 +23,6 @@ public class MenúDinámico{
 
 
     public Iterator createIterator(){
-      return hamburguesasMenu.iterator();
+      return new IteratorMenúDinámico(hamburguesasMenu);
     }
 }

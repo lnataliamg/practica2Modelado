@@ -15,6 +15,7 @@ public class Preparación implements State{
   @Override
   public void cocinar(){
     System.out.println("Estoy cocinando");
+  
     robot.setState(robot.getOrdenLista());
   }
   @Override

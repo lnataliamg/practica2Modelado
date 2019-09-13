@@ -11,6 +11,7 @@ public class Activado implements State{
   @Override
   public void leerMenu(){
     System.out.println("Aquí está el menú");
+    robot.printMenu();
     robot.setState(robot.getOrdenTomada());
   }
 

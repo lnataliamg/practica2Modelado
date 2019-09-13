@@ -1,8 +1,8 @@
 public abstract class PreparadorHamburguesas{
   Hamburguesa hamburguesa;
-  public void prepararHamburguesa(String elementoDiferente){
+  public void prepararHamburguesa(Hamburguesa hamburguesa){
 
-    System.out.println("Poner pan");
+    System.out.printlSn("Poner pan");
     System.out.println("Poner mayonesa");
     prepararCarne(hamburguesa.esVegetariano());
     agregarQueso(hamburguesa.tieneQueso());

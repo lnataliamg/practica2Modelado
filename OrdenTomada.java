@@ -19,6 +19,7 @@ public class OrdenTomada implements State{
   @Override
   public void caminarHaciaCocina(){
     System.out.println("Ya estoy caminando hacia la cocina");
+    robot.setState(robot.getPreparación());
   }
   @Override
   public void suspender(){

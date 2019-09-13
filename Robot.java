@@ -1,5 +1,5 @@
-import java.util.*;
-public class Robot extends PreparadorHamburguesas{
+
+public class Robot{
   State activo;
   State ordenTomada;
   State preparación;
@@ -25,18 +25,15 @@ public class Robot extends PreparadorHamburguesas{
   }
 
   public void printMenu(){
-    Iterator iteradorGeneral =  menúGeneral.createIterator();
-    Iterator iteradorEspecial = (Iterator) menúEspecial.createIterator();
-    Iterator iteradorDinámico = (Iterator) menúDinámico.createIterator();
+    Iterator iteradorGeneral  =   menúGeneral.createIterator();
+  //  Iterator iteradorEspecial =   menúEspecial.createIterator();
+    Iterator iteradorDinámico =  menúDinámico.createIterator();
     System.out.println("El menú del día tiene: \n");
-    printMenu(iteradorGeneral);
-
+    printMenu(iteradorDinámico);
     System.out.println("El menú que siempre está disponible tiene: \n");
     printMenu(iteradorGeneral);
-
-
-    System.out.println("El menú especial tiene: \n");
-    printMenu(iteradorGeneral);
+    System.out.println("El menú especial tiene:\n");
+  //  printMenu(iteradorEspecial);
 
 
   }
@@ -45,14 +42,17 @@ public class Robot extends PreparadorHamburguesas{
     while(iterator.hasNext()){
       Hamburguesa hamburguesas = (Hamburguesa)iterator.next();
 
-      System.out.println(hamburguesas.getNombrePlatillo() + "                   ");
-      System.out.println(hamburguesas.getPrecio() + "\n");
+      System.out.print(hamburguesas.getNombrePlatillo() + "....................................");
+      System.out.println(hamburguesas.getPrecio());
       System.out.println(hamburguesas.getDescripción() );
     }
 
   }
   public void setState(State newState){
     this.estado = newState;
+  }
+  public void darBienvenida(){
+    estado.darBienvenida();
   }
 
   public void leerMenu(){
@@ -88,22 +88,10 @@ public class Robot extends PreparadorHamburguesas{
     return suspendido;
   }
 
-  @Override
-  public  void prepararCarne(Boolean vegetariano){
-    if(vegetariano){
-      System.out.println("Preparando carne de Tofu");
+  public void prepararHamburguesa(Hamburguesa hamburguesa);
+  hamburguesa.prepararHamburguesaTemplate();
 
-    }else{
-      System.out.println("Preparando carne término 3/4");
-    }
-      System.out.println("Poniendo carne");
-  }
-  @Override
-  public  void agregarQueso(Boolean queso){
-    if(queso){
-      System.out.println("Agregando queso");
-    }
-  }
+}
 
 
 

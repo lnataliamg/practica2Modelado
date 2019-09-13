@@ -3,8 +3,8 @@
 */
 public class MenúGeneral{
   Hamburguesa [] hamburguesasMenu;
-  int númeroHamburguesas;
-  int númeroActual;
+  static final int númeroHamburguesas = 5;
+  int númeroActual=0;
 
   public MenúGeneral(){
     hamburguesasMenu = new Hamburguesa[númeroHamburguesas];
@@ -25,18 +25,17 @@ public class MenúGeneral{
       System.out.println("Ya no se pueden agregar más hamburgesas al menú");
     }else{
       hamburguesasMenu[númeroActual] = hamburguesaNueva;
-      númeroActual++;
-
+      númeroActual = númeroActual+1;
     }
   }
 
-  public void setNúmeroHamburguesas(int númeroHamburguesas){
-    this.númeroHamburguesas= númeroHamburguesas;
-  }
+
 
   public Iterator createIterator(){
     return new IteradorMenúGeneral(hamburguesasMenu);
   }
+
+
 
 
 }
