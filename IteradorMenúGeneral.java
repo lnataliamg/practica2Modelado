@@ -5,6 +5,7 @@ public class IteradorMenúGeneral implements Iterator{
   public IteradorMenúGeneral(Hamburguesa [] hamburguesas){
     this.hamburguesas = hamburguesas;
   }
+  
   public Object next(){
     Hamburguesa hamburguesaRecorrida  = hamburguesas[posición];
     posición++;

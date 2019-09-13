@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.Iterator;
 public class MenúEspecial{
   Hashtable hamburguesasMenu;
 
@@ -6,8 +7,8 @@ public class MenúEspecial{
     hamburguesasMenu = new Hashtable();
   }
 
-  public void agregarHamburguesa(int id, String nombre, String descripción, float precio, Boolean tieneQueso, Boolean esVegetariano){
-    Hamburguesa hamburguesaNueva = new Hamburguesa(id,nombre,descripción,precio,tieneQueso,esVegetariano);
+  public void agregarHamburguesa(String nombre, String descripción, float precio, Boolean tieneQueso, Boolean esVegetariano){
+    Hamburguesa hamburguesaNueva = new Hamburguesa(nombre,descripción,precio,tieneQueso,esVegetariano);
     hamburguesasMenu.put(hamburguesaNueva.getId(), hamburguesaNueva);
   }
 

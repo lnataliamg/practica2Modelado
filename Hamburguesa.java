@@ -3,7 +3,7 @@
 * @author Méndez Gallegos Ligia Natalia
 */
 public class Hamburguesa{
-  int idHamburguesa;
+  int idHamburguesa = 0;
   String nombrePlatillo;
   String descripción;
   float precio;
@@ -28,8 +28,8 @@ public class Hamburguesa{
   *  @param tieneQueso es el neuvo valor Booleano para ver si tiene queso una hamburgesa True tiene False no tiene queso
   *  @param esVegetariano es el neuvo valor Booleano para ver siuna hamburgesa es vegetariana True es False no es vegetariana
   */
-  public Hamburguesa(int idHamburguesa, String nombrePlatillo, String descripción, float precio, Boolean tieneQueso, Boolean esVegetariano){
-    this.idHamburguesa = idHamburguesa;
+  public Hamburguesa(String nombrePlatillo, String descripción, float precio, Boolean tieneQueso, Boolean esVegetariano){
+    this.idHamburguesa++;
     this.nombrePlatillo= nombrePlatillo;
     this.descripción=descripción;
     this.precio = precio;
@@ -40,5 +40,22 @@ public class Hamburguesa{
   public int getId(){
     return idHamburguesa;
   }
+  public String getNombrePlatillo(){
+    return nombrePlatillo;
+  }
+  public String getDescripción(){
+    return descripción;
+  }
 
+  public float getPrecio(){
+    return precio;
+  }
+
+  public Boolean tieneQueso(){
+    return tieneQueso;
+  }
+
+  public Boolean esVegetariano(){
+    return esVegetariano;
+  }
 }
