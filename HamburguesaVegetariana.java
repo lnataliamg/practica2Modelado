@@ -1,4 +1,13 @@
 public class HamburguesaVegetariana extends Hamburguesa{
+
+  public HamburguesaVegetariana(){
+    super();
+  }
+
+  public HamburguesaVegetariana(int idHamburguesa, String nombrePlatillo, String descripción, float precio, Boolean tieneQueso){
+    super(idHamburguesa,nombrePlatillo,descripción,precio,tieneQueso,true);
+  }
+
   @Override
   public void prepararCarne(){
       System.out.println("Preparando carne vegetariana de quinoa");

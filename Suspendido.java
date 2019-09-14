@@ -16,7 +16,7 @@ public class Suspendido implements State{
   }
 
   @Override
-  public void cocinar(){
+  public void cocinar(Hamburguesa hamburguesa){
     System.out.println("No puedo, estoy suspendido");
   }
   @Override

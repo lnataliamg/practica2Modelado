@@ -13,12 +13,12 @@ public class OrdenTomada implements State{
     System.out.println("Lo siento, ya tomé la orden.");
   }
   @Override
-  public void cocinar(){
+  public void cocinar(Hamburguesa hamburguesa){
     System.out.println("Aún no he llegado a la cocina, no puedo cocinar aquí");
   }
   @Override
   public void caminarHaciaCocina(){
-    System.out.println("Ya estoy caminando hacia la cocina");
+    System.out.println("En cuanto me digas, me voy caminando hacia la cocina");
     robot.setState(robot.getPreparación());
   }
   @Override

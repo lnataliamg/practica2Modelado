@@ -4,6 +4,7 @@ public class Activado implements State{
   public Activado(Robot robot){
     this.robot = robot;
   }
+  @Override
   public void darBienvenida(){
     System.out.println("Ya te había dado la bienvenida, pero bienvenido de nuevo");
 
@@ -12,11 +13,12 @@ public class Activado implements State{
   public void leerMenu(){
     System.out.println("Aquí está el menú");
     robot.printMenu();
+    System.out.println("¿Qué quieres ordenar?");
     robot.setState(robot.getOrdenTomada());
   }
 
   @Override
-  public void cocinar(){
+  public void cocinar(Hamburguesa hamburguesa){
     System.out.println("No puedo cocinar, aún no has pedido");
   }
   @Override

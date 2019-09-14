@@ -1,4 +1,5 @@
-
+import java.util.*;
+import java.util.Iterator;
 public class Robot{
   State activo;
   State ordenTomada;
@@ -25,15 +26,15 @@ public class Robot{
   }
 
   public void printMenu(){
-    Iterator iteradorGeneral  =   menúGeneral.createIterator();
-  //  Iterator iteradorEspecial =   menúEspecial.createIterator();
+    Iterator iteradorGeneral  =  menúGeneral.createIterator();
+    Iterator iteradorEspecial =  menúEspecial.createIterator();
     Iterator iteradorDinámico =  menúDinámico.createIterator();
-    System.out.println("El menú del día tiene: \n");
-    printMenu(iteradorDinámico);
-    System.out.println("El menú que siempre está disponible tiene: \n");
+    System.out.println("\n El menú que siempre está disponible tiene: \n");
     printMenu(iteradorGeneral);
-    System.out.println("El menú especial tiene:\n");
-  //  printMenu(iteradorEspecial);
+    System.out.println("\n El menú del día tiene: \n");
+    printMenu(iteradorDinámico);
+    System.out.println("\n El menú especial tiene:\n");
+    printMenu(iteradorEspecial);
 
 
   }
@@ -48,9 +49,7 @@ public class Robot{
     }
 
   }
-  public void setState(State newState){
-    this.estado = newState;
-  }
+
   public void darBienvenida(){
     estado.darBienvenida();
   }
@@ -61,8 +60,8 @@ public class Robot{
   public void suspender(){
     estado.suspender();
   }
-  public void cocinar(){
-    estado.cocinar();
+  public void cocinar(Hamburguesa hamburguesa){
+    estado.cocinar(hamburguesa);
   }
   public void caminarHaciaCocina(){
     estado.caminarHaciaCocina();
@@ -87,12 +86,7 @@ public class Robot{
   public State getSuspendido(){
     return suspendido;
   }
-
-  public void prepararHamburguesa(Hamburguesa hamburguesa);
-  hamburguesa.prepararHamburguesaTemplate();
-
-}
-
-
-
+  public void setState(State state){
+    this.estado= state;
+  }
 }

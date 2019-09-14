@@ -12,7 +12,7 @@ public class OrdenLista implements State{
     System.out.println("Lo siento, ya tomé la orden.");
   }
   @Override
-  public void cocinar(){
+  public void cocinar(Hamburguesa hamburguesa){
     System.out.println("Ya acabé de cocinar, en seguida te llevo tu comida");
   }
   @Override

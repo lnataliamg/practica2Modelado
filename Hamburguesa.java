@@ -28,8 +28,8 @@ public abstract class Hamburguesa{
   *  @param tieneQueso es el neuvo valor Booleano para ver si tiene queso una hamburgesa True tiene False no tiene queso
   *  @param esVegetariano es el neuvo valor Booleano para ver siuna hamburgesa es vegetariana True es False no es vegetariana
   */
-  public Hamburguesa(String nombrePlatillo, String descripción, float precio, Boolean tieneQueso, Boolean esVegetariano){
-    this.idHamburguesa++;
+  public Hamburguesa(int idHamburguesa,String nombrePlatillo, String descripción, float precio, Boolean tieneQueso, Boolean esVegetariano){
+    this.idHamburguesa = idHamburguesa;
     this.nombrePlatillo= nombrePlatillo;
     this.descripción=descripción;
     this.precio = precio;
@@ -68,15 +68,30 @@ public abstract class Hamburguesa{
   }
 
   public void prepararHamburguesaTemplate(){
-    System.out.println("Poner pan");
-    System.out.println("Poner mayonesa");
-    System.out.println("Poner Mostaza");
+    ponerPan();
     prepararCarne();
     agregarQueso();
-    System.out.println("Poner vegetales");
-    System.out.println("Poner catsup");
-    System.out.println("Poner pan");
+    ponerCondimentos();
+    prepararVegetales();
+    ponerPan();
 
+  }
+
+
+  public void ponerPan(){
+    System.out.println("Poner pan");
+  }
+
+  public void ponerCondimentos(){
+    System.out.println("Poner mayonesa");
+    System.out.println("Poner Mostaza");
+    System.out.println("Poner catsup");
+  }
+
+  public void prepararVegetales(){
+    System.out.println("Poner lechuga");
+    System.out.println("Poner jitomate");
+    System.out.println("Poner pepinillos");
   }
 
 

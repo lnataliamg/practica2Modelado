@@ -9,60 +9,37 @@ public class Main{
     int hamburguesasGenerales = 1 ;
 
   public void darBienvenida(){
-    System.out.println("                   ¡Bienvenido a McBurguesas!                     \n");
+    System.out.println("\n                   ---¡Bienvenido a McBurguesas!---                     \n");
 
 
-    menuGeneral.agregarHamburguesa("1. Hamburguesa quesosa","La original de McBurguesas, pídela en su versión vegetariana. Mientras más queso mejor.",(float)58.9,true,false);
-    menuGeneral.agregarHamburguesa("2. Hamburguesa picosa","La más picosas de McBurguesas, pídela en su versión vegetariana y con queso.",(float)58.9,false,false);
-    menuGeneral.agregarHamburguesa("3. Hamburguesa tenebrosa","Con tres trozos de carne, la tenebrosa es la más grande de las hamburgesas de McBurguesas, pídela en su versión vegetariana y con queso .",(float)60.9,false,false);
-    menuGeneral.agregarHamburguesa("4. Hamburguesa sabrosa ","La vegetariana de McBurguesas.",(float)58.9,false,true);
-    menuGeneral.agregarHamburguesa("5. Hamburguesa curiosa","Con nuestra salsa secreta, pídela en su versión vegetariana y con queso.",(float)58.9,false,false);
-
-    menúDinámico.agregarHamburguesa("6. Hamburguesa de carme picosas", "Por tiempo limitado, pídela ahora. Disfrutarás más su sabor con queso", (float)60.0,false,false);
-    menúDinámico.agregarHamburguesa("7. Hamburguesa de quinoa", "Por poco timepo podrás disfrutar una hamburguesa orgánica, completamente natural", (float)70.00, false,true);
-
-    menuEspecial.agregarHamburguesa("8. Hamburguesa de arrachera", "Hamburguesa con queso y carne de la mejor calidad.", (float)100, true,false);
-    menuEspecial.agregarHamburguesa("9. Tripleburguer", "Hamburguesa con queso hecha de tres de nuestras mejores carnes de la mejor calidad." ,(float)120.00, true,false);
-    menuEspecial.agregarHamburguesa("10. Hamburguesa de trufas", "Hamburguesa sumamente deliciosa apta para todos los vegetarianos, tiene trufas frescas y verdaaderas",(float) 200,false,true);
+    menuGeneral.agregarHamburguesa(1,"1. Hamburguesa quesosa","La original de McBurguesas, carne 100%. Mientras más queso mejor.",(float)58.9,true,false);
+    menuGeneral.agregarHamburguesa(2,"2. Hamburguesa picosa","La más picosas de McBurguesas con el mejor queso .",(float)58.9,true,false);
+    menuGeneral.agregarHamburguesa(3,"3. Hamburguesa tenebrosa","Con carne especialmente preparada, no te das cuenta de que es no carne",(float)60.9,false,true);
+    menuGeneral.agregarHamburguesa(4,"4. Hamburguesa sabrosa ","La vegetariana de McBurguesas con queso.",(float)58.9,true,true);
+    menuGeneral.agregarHamburguesa(5,"5. Hamburguesa curiosa","Con nuestra salsa secreta esta hamburguesa tiene el mejor queso.",(float)58.9,true,false);
+    menúDinámico.agregarHamburguesa(1,"6. Hamburguesa de carne picosa", "Por tiempo limitado, pídela ahora ", (float)60.0,false,false);
+    menúDinámico.agregarHamburguesa(2,"7. Hamburguesa vegetariana orgánica", "Por poco timepo podrás disfrutar una hamburguesa orgánica, completamente natural, hecha de verduras", (float)70.00, false,true);
+    menúDinámico.agregarHamburguesa(3,"8. Hamburgesa jugosa con queso.", "Preparamos esta hamburguesa para que se derrita en tu boca", (float)58.9, true,false);
+    menuEspecial.agregarHamburguesa(1,"9. Hamburguesa de arrachera", "Hamburguesa con queso y carne de la mejor calidad.", (float)100, true,false);
+    menuEspecial.agregarHamburguesa(2,"10. Tripleburguer", "Hamburguesa con queso hecha de tres de nuestras mejores carnes de la mejor calidad." ,(float)120.00, true,false);
+    menuEspecial.agregarHamburguesa(3,"11. Hamburguesa de quinoa", "Hamburguesa sumamente deliciosa apta para todos los vegetarianos",(float) 200,true,true);
 
     menuRobot();
   }
 
-  public Boolean preguntarVegetariano(){
-    System.out.println("La quieres vegetariana?");
-    System.out.println("1. Sí");
-    System.out.println("2. No");
 
-    int respuestaVegetariana = s.nextInt();
-    if(respuestaVegetariana == 1){
-      return true;
-    }else{
-      return false;
-    }
-  }
-
-  public Boolean pregntarQueso(){
-    System.out.println("La quieres con queso?");
-    System.out.println("1. Sí");
-    System.out.println("2. No");
-
-    int respuestaQueso = s.nextInt();
-    if(respuestaQueso == 1){
-      return true;
-    }else{
-       return false;
-    }
-  }
 
   public void menuRobot(){
     State suspendido = new Suspendido(robotcito);
+    Hamburguesa hamburger =  null;
     robotcito.setState(suspendido);
     robotcito.darBienvenida();
     int opción;
 
     do{
-    System.out.println("1. Quiero ordenar algo. Leeme el menú");
-    System.out.println("2. Camina");
+    System.out.println("0. Dame la bienvenida");
+    System.out.println("1. Quiero ordenar algo. Léeme el menú");
+    System.out.println("2. Camina hacia la cocina");
     System.out.println("3. Cocina");
     System.out.println("4. Tráeme mi comida");
     System.out.println("5. Suspéndete");
@@ -70,46 +47,89 @@ public class Main{
 
 
 
-    System.out.println("¿Qué opción queres hacer?");
+    System.out.println("¿Qué opción quieres hacer?");
     opción = s.nextInt();
 
     switch(opción){
+      case 0:
+        robotcito.darBienvenida();
+        break;
       case 1:
         robotcito.leerMenu();
-        System.out.println("¿Qué quieres ordenar?");
-        int comida = s.nextInt();
 
+        int comida = s.nextInt();
         switch(comida){
           case 1:
+            hamburger = menuGeneral.getElemento(1);
+            System.out.println("Ordenaste: "+ hamburger.getNombrePlatillo());
+            break;
 
           case 2:
+            hamburger = menuGeneral.getElemento(2);
+            System.out.println("Ordenaste: " +hamburger.getNombrePlatillo());
+          break;
 
           case 3:
+            hamburger = menuGeneral.getElemento(3);
+            System.out.println("Ordenaste: " +hamburger.getNombrePlatillo());
+          break;
 
           case 4:
+           hamburger = menuGeneral.getElemento(4);
+           System.out.println("Ordenaste: " +hamburger.getNombrePlatillo());
+          break;
 
           case 5:
+           hamburger = menuGeneral.getElemento(5);
+           System.out.println("Ordenaste: " +hamburger.getNombrePlatillo());
+          break;
+
+          case 6:
+           hamburger = menúDinámico.getElemento(1);
+           System.out.println("Ordenaste: " +hamburger.getNombrePlatillo());
+          break;
 
           case 7:
+           hamburger = menúDinámico.getElemento(2);
+           System.out.println("Ordenaste: "+hamburger.getNombrePlatillo());
+          break;
 
           case 8:
+           hamburger = menúDinámico.getElemento(3);
+           System.out.println("Ordenaste: "+hamburger.getNombrePlatillo());
+          break;
 
           case 9:
+           hamburger = menuEspecial.getElemento(3);
+           System.out.println("Ordenaste: "+hamburger.getNombrePlatillo());
+          break;
 
-
+          case 10:
+           hamburger = menuEspecial.getElemento(2);
+           System.out.println("Ordenaste: "+hamburger.getNombrePlatillo());
+           break;
+          case 11:
+           hamburger = menuEspecial.getElemento(1);
+           System.out.println("Ordenaste: "+hamburger.getNombrePlatillo());
+           break;
         }
+        break;
       case 2:
       robotcito.caminarHaciaCocina();
       break;
 
       case 3:
-      robotcito.cocinar();
+      robotcito.cocinar(hamburger);
+
       break;
+
       case 4:
       robotcito.entregarComida();
       break;
+
       case 5:
       robotcito.suspender();
+      break;
 
       case 6:
       System.exit(0);
